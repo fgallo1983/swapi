@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filmes</title>
+</head>
+<body>
+    <h1>Filmes de Star Wars</h1>
+    <ul>
+        {% for film in films %}
+        <li>{{ film.title }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Voltar para a Home</a>
+</body>
+</html>

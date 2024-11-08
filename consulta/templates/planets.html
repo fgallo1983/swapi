@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planetas</title>
+</head>
+<body>
+    <h1>Planetas de Star Wars</h1>
+    <ul>
+        {% for planet in planets %}
+        <li>{{ planet.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Voltar para a Home</a>
+</body>
+</html>

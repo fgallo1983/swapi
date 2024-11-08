@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 import requests
 
 SWAPI_BASE_URL = "https://swapi.dev/api"
