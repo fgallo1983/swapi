@@ -11,7 +11,14 @@ def people(request):
     """Lista de personagens."""
     response = requests.get(f"{SWAPI_BASE_URL}/people/")
     data = response.json()
-    return render(request, 'people.html', {'people': data['results']})
+    
+    people_with_ids = []
+    for person in data['results']:
+        # Extrai o ID da URL
+        person_id = person['url'].rstrip('/').split('/')[-1]
+        people_with_ids.append({**person, 'id': person_id})
+    
+    return render(request, 'people.html', {'people': people_with_ids})
 
 def planets(request):
     """Lista de planetas."""
