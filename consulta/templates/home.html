@@ -1,14 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWAPI Platform</title>
+    <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
+
 </head>
-<body>
+<body>  
+    <div class="container">
     <h1>Bem-vindo à SWAPI Platform</h1>
-    <ul>
-        <li><a href="{% url 'people' %}">Personagens</a></li>
-        <li><a href="{% url 'planets' %}">Planetas</a></li>
-        <li><a href="{% url 'films' %}">Filmes</a></li>
-    </ul>
+        <ul>
+            <li><a href="{% url 'people' %}">Personagens</a></li>
+            <li><a href="{% url 'planets' %}">Planetas</a></li>
+            <li><a href="{% url 'films' %}">Filmes</a></li>
+        </ul>
+    </div>
 </body>
 </html>

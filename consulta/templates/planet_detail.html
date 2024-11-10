@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planetas de Star Wars</title>
     <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
+
+    <title>{{ planet.name }}</title>
 </head>
 <body>
     <div class="container">
-        <h1>Planetas de Star Wars</h1>
-        <ul>
-            {% for planet in planets %}
-            <li><a href="{% url 'planet_detail' planet.id %}">{{ planet.name }}</a></li>
-            {% endfor %}
-        </ul>
-        <a class="return-link" href="{% url 'home' %}">Voltar para a Home</a>
+        <h1>Detalhes de {{ planet.name }}</h1>
+        <p>Clima {{ planet.climate }} cm</p>
+        <p>Terreno: {{ planet.terrain }} kg</p>
+        <p>População: {{ planet.population }}</p>
+        <a href="{% url 'planets' %}">Voltar para Planetas</a>
     </div>
 </body>
 </html>

@@ -24,7 +24,14 @@ def planets(request):
     """Lista de planetas."""
     response = requests.get(f"{SWAPI_BASE_URL}/planets/")
     data = response.json()
-    return render(request, 'planets.html', {'planets': data['results']})
+    
+    planet_with_ids = []
+    for planet in data['results']:
+        # Extrai o ID da URL
+        planet_id = planet['url'].rstrip('/').split('/')[-1]
+        planet_with_ids.append({**planet, 'id': planet_id})
+    
+    return render(request, 'planets.html', {'planets': planet_with_ids})
 
 def films(request):
     """Lista de filmes."""
@@ -37,3 +44,11 @@ def person_detail(request, id):
     response = requests.get(f"{SWAPI_BASE_URL}/people/{id}/")
     data = response.json()
     return render(request, 'person_detail.html', {'person': data})
+
+def planet_detail(request, id): 
+    """Detalhes de um personagem específico."""
+    response = requests.get(f"{SWAPI_BASE_URL}/planets/{id}/")
+    data = response.json()
+    return render(request, 'planet_detail.html', {'planet': data})
+
+

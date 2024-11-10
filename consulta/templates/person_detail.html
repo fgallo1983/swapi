@@ -1,17 +1,27 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagens de Star Wars</title>
+    <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
+</head>
     <title>{{ person.name }}</title>
 </head>
 <body>
-    <h1>Detalhes de {{ person.name }}</h1>
-    <p>Altura: {{ person.height }} cm</p>
-    <p>Peso: {{ person.mass }} kg</p>
-    <p>Cor do cabelo: {{ person.hair_color }}</p>
-    <p>Cor da pele: {{ person.skin_color }}</p>
-    <p>Cor dos olhos: {{ person.eye_color }}</p>
-    <p>Ano de nascimento: {{ person.birth_year }}</p>
-    <p>Gênero: {{ person.gender }}</p>
-    <a href="{% url 'people' %}">Voltar para Personagens</a>
+    <div class="container">
+        <h1>Detalhes de {{ person.name }}</h1>
+        <p>Altura: {{ person.height }} cm</p>
+        <p>Peso: {{ person.mass }} kg</p>
+        <p>Cor do cabelo: {{ person.hair_color }}</p>
+        <p>Cor da pele: {{ person.skin_color }}</p>
+        <p>Cor dos olhos: {{ person.eye_color }}</p>
+        <p>Ano de nascimento: {{ person.birth_year }}</p>
+        <p>Gênero: {{ person.gender }}</p>
+        <a class="return-link" href="{% url 'home' %}">Voltar para a Personagens</a>
+    </div>
 </body>
 </html>
+
