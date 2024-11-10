@@ -37,7 +37,14 @@ def films(request):
     """Lista de filmes."""
     response = requests.get(f"{SWAPI_BASE_URL}/films/")
     data = response.json()
-    return render(request, 'films.html', {'films': data['results']})
+    
+    film_with_ids = []
+    for film in data['results']:
+        # Extrai o ID da URL
+        film_id = film['url'].rstrip('/').split('/')[-1]
+        film_with_ids.append({**film, 'id': film_id})
+        
+    return render(request, 'films.html', {'films': film_with_ids})
 
 def person_detail(request, id): 
     """Detalhes de um personagem específico."""
@@ -50,5 +57,11 @@ def planet_detail(request, id):
     response = requests.get(f"{SWAPI_BASE_URL}/planets/{id}/")
     data = response.json()
     return render(request, 'planet_detail.html', {'planet': data})
+
+def film_detail(request, id): 
+    """Detalhes de um personagem específico."""
+    response = requests.get(f"{SWAPI_BASE_URL}/films/{id}/")
+    data = response.json()
+    return render(request, 'film_detail.html', {'film': data})
 
 

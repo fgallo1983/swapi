@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes de Star Wars</title>
     <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
+
+    <title>{{ film.title }}</title>
 </head>
 <body>
     <div class="container">
-        <h1>Filmes de Star Wars</h1>
-        <ul>
-            {% for film in films %}
-            <li><a href="{% url 'film_detail' film.id %}">{{ film.title }}</a></li>
-            {% endfor %}
-        </ul>
-        <a class="return-link" href="{% url 'home' %}">Voltar para a Home</a>
+        <h1>Detalhes de {{ film.title }}</h1>
+        <p>Título{{ film.title  }}</p>
+        <p>Diretor: {{ film.director }}</p>
+        <p>Produtor: {{ film.producer }}</p>
+        <a href="{% url 'films' %}">Voltar para Filmes</a>
     </div>
 </body>
 </html>
