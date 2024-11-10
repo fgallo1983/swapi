@@ -1,15 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Planetas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetas de Star Wars</title>
+    <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
 </head>
 <body>
-    <h1>Planetas de Star Wars</h1>
-    <ul>
-        {% for planet in planets %}
-        <li>{{ planet.name }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'home' %}">Voltar para a Home</a>
+    <div class="container">
+        <h1>Planetas de Star Wars</h1>
+        <ul>
+            {% for planet in planets %}
+            <li>{{ planet.name }}</li>
+            {% endfor %}
+        </ul>
+        <a class="return-link" href="{% url 'home' %}">Voltar para a Home</a>
+    </div>
 </body>
 </html>
