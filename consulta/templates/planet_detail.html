@@ -13,8 +13,8 @@
 <body>
     <div class="container">
         <h1>Detalhes de {{ planet.name }}</h1>
-        <p>Clima {{ planet.climate }} cm</p>
-        <p>Terreno: {{ planet.terrain }} kg</p>
+        <p>Clima {{ planet.climate }}</p>
+        <p>Terreno: {{ planet.terrain }}</p>
         <p>População: {{ planet.population }}</p>
         <a href="{% url 'planets' %}">Voltar para Planetas</a>
     </div>
