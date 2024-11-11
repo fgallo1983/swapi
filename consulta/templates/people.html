@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,5 +18,36 @@
         </ul>
         <a class="return-link" href="{% url 'home' %}">Voltar para a Home</a>
     </div>
+</body>
+</html> {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personagens de Star Wars</title>
+        <link rel="stylesheet" href="{% static 'consulta/style.css' %}">
+    </head>
+<body>
+    <div class="container">
+        <h1>Personagens de Star Wars</h1>
+        <ul>
+            {% for person in people %}
+            <li>
+                <a href="{% url 'person_detail' person.id %}">{{ person.name }}</a>
+                <p>Filmes:</p>
+                <ul>
+                    {% for film in person.films %}
+                    <li>{{ film.title }} ({{ film.release_date }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+            <a class="return-link" href="{% url 'home' %}">Voltar para a Home</a>
+    </div>
+    </ul>
 </body>
 </html>
